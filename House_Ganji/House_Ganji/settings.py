@@ -123,6 +123,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
    'House_Ganji.pipelines.DuplicatesPipeline': 300,
     'House_Ganji.pipelines.MysqlPipeline': 301,
+    'scrapy_redis.pipelines.RedisPipeline': 302
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -156,3 +157,10 @@ MYSQL_PORT = 3306
 
 ##vb nP代理池
 PROXY_URL = 'http://192.168.1.37:5555/random'
+
+
+## redis 配置
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+
+REDIS_URL = 'redis://root:aixocm@192.168.1.99:6379'
